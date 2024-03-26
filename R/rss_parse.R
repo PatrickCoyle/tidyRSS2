@@ -26,7 +26,7 @@ rss_parse <- function(response, list, clean_tags, parse_dates) {
                                     "first", "//*[name()='lastBuildDate']"),
     feed_category = list(category = safe_run(
       channel, "first", "//*[name()='category']"
-      )),
+    )),
     feed_generator = safe_run(channel, "first", "//*[name()='generator']"),
     feed_docs = safe_run(channel, "first", "//*[name()='docs']"),
     feed_managingEditor = safe_run(channel, "first", "//*[name()='managingEditor']"),
@@ -49,7 +49,9 @@ rss_parse <- function(response, list, clean_tags, parse_dates) {
     item_title = map(res_entry, "title", .default = def) %>% unlist(),
     item_link = map(res_entry, "link", .default = def) %>% unlist(),
     item_description = map(res_entry, "description", .default = def) %>%
-      replace_null() %>% discard(safe_check_comment) %>% unlist(),
+      replace_null() %>%
+      map(~discard_at(.x, "i")) %>%
+      unlist(),
     item_pub_date = map(res_entry, "pubDate", .default = def) %>% unlist(),
     item_guid = map(res_entry, "guid", .default = def) %>% unlist(),
     item_author = map(res_entry, "author", .default = def),

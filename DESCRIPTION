@@ -1,7 +1,7 @@
-Package: tidyRSS
+Package: tidyRSS2
 Type: Package
 Title: Tidy RSS for R
-Version: 2.0.7
+Version: 3.0.0
 Authors@R: c(
     person("Robert Myles", "McDonnell", email = "robertmylesmcdonnell@gmail.com", role = c("aut", "cre")),
     person("Jonathan", "Carroll", email = "jono@jcarroll.com.au", role = "ctb"),
