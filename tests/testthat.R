@@ -1,4 +1,4 @@
 library(testthat)
-library(tidyRSS)
+library(tidyRSS2)
 
-test_check("tidyRSS")
+test_check("tidyRSS2")
